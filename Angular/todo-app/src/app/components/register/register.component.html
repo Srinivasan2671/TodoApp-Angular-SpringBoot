@@ -1,0 +1,19 @@
+<div>
+    <h2>Register</h2>
+    
+    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" style="color: green;">{{ successMessage }}</div>
+  
+    <form (submit)="register(); $event.preventDefault()">
+      <label>User ID:</label>
+      <input type="text" name="userId" [(ngModel)]="userId" required>
+  
+      <label>Password:</label>
+      <input type="password" name="password" [(ngModel)]="password" required>
+  
+      <button type="submit">Register</button>
+    </form>
+  
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+  

@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="card p-4 shadow-sm">
+    <h4 class="text-center mb-3">Create a Todo</h4>
+
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" [(ngModel)]="todoTitle" class="form-control" placeholder="Enter title" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" [(ngModel)]="todoDescription" class="form-control" placeholder="Enter description" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [(ngModel)]="todoIsDone" [value]="true" />
+        <label class="form-check-label">Done</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" [(ngModel)]="todoIsDone" [value]="false" />
+        <label class="form-check-label">Not Done</label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100" (click)="createTodo()">Create Todo</button>
+  </div>
+</div>

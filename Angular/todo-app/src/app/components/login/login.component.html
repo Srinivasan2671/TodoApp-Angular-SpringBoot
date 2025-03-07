@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h2 class="text-center">Login</h2>
+        
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  
+        <div class="mb-3">
+          <label class="form-label">User ID</label>
+          <input type="text" class="form-control" [(ngModel)]="userId" placeholder="Enter User ID" />
+        </div>
+  
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" placeholder="Enter Password" />
+        </div>
+  
+        <button class="btn btn-primary w-100" (click)="login()">Login</button>
+      </div>
+      <br>
+      <br>
+      <p class="text-center">Don't have an account? <a routerLink="/register">Register here</a></p>
+
+    </div>
+  </div>
+  

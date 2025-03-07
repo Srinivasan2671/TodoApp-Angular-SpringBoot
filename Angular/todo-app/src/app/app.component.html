@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/todos">Todo App</a>
+  
+      <div class="d-flex align-items-center">
+        
+        <span class="text-light me-3" *ngIf="authService.isLoggedIn()">User: {{ authService.getUserId() }}</span>
+        
+        <button class="btn btn-danger" (click)="logout()" *ngIf="authService.isLoggedIn()">Logout</button>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>
+  
