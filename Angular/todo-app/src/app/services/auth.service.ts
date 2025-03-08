@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, tap, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  
-  private apiUrl = 'http://localhost:4200/api/auth';
+  private apiUrl = `${environment.API_BASE_URL}/auth`;
 
   constructor(
     private http: HttpClient,
@@ -20,7 +20,7 @@ export class AuthService {
   login(userId: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { userId, password }).pipe(
       tap(response => {
-        if (response.userId && this.isBrowser()) {  // ✅ Check if in browser
+        if (response.userId && this.isBrowser()) {
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userId', response.userId.toString());
           this.router.navigate(['/todos']);
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   logout(): void {
-    if (this.isBrowser()) {  // ✅ Ensure browser environment
+    if (this.isBrowser()) {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('userId');
     }
