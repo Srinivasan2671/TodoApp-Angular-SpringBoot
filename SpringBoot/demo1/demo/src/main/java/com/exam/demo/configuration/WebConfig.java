@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         // Allow all endpoints
         registry.addMapping("/**")
                 // Allow frontend origin (your Angular frontend on port 4200)
-                .allowedOrigins("http://localhost:4200")
+                .allowedOrigins("https://todo-app-angular-spring-boot.vercel.app")
                 // Allow methods you want to use
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 // Allow all headers
