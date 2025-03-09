@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `${environment.API_BASE_URL}/auth`;
+  
+  private apiUrl = 'http://localhost:4200/api/auth';
 
   constructor(
     private http: HttpClient,
